@@ -19,6 +19,6 @@ Route::controller(ArticlesController::class)->prefix('articles')->group(function
     Route::get('/', 'index');
     Route::post('/', 'store');
     Route::get('/{article}', 'show');
-    Route::put('/{article}', 'update');
+    Route::post('/{article}', 'update');
     Route::delete('/{article}', 'destroy');
 });

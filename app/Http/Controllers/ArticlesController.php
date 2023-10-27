@@ -35,11 +35,7 @@ class ArticlesController extends Controller
      */
     public function show(Article $article)
     {
-        if ($article) return response()->json($article);
-
-        return response()->json([
-            'message' => 'Article not found.',
-        ], 404);
+        return response()->json($article);
     }
 
     /**
@@ -47,14 +43,10 @@ class ArticlesController extends Controller
      */
     public function update(ArticleRequest $request, Article $article)
     {
-        if (!$article) return response()->json([
-            'message' => 'Article not found.'
-        ], 404);
-
         $article->update($request->all());
 
         return response()->json([
-            'message' => 'Article created successfully!',
+            'message' => 'Article updated successfully!',
         ]);
     }
 
@@ -63,10 +55,6 @@ class ArticlesController extends Controller
      */
     public function destroy(Article $article)
     {
-        if (!$article) return response()->json([
-            'message' => 'Article not found.',
-        ], 404);
-
         $article->delete();
 
         return response()->json([
